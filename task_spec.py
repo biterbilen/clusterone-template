@@ -2,7 +2,7 @@ import os
 import json
 import argparse
 import tensorflow as tf
-import tensorport
+import clusterone
 
 
 class TaskSpec(object):
@@ -91,19 +91,19 @@ def get_task_spec(with_evaluator=False):
 def get_logs_path(path):
     """
     Log dir specification, see: get_logs_path,
-    https://tensorport.com/documentation/api/#get_logs_path
+    https://clusterone.com/documentation/api/#get_logs_path
     :param str path: the path for the logs dir
     :return str: the real path for the logs
     """
     if path.startswith('gs://'):
         return path
-    return tensorport.get_logs_path(path)
+    return clusterone.get_logs_path(path)
 
 
 def get_data_path(dataset_name, local_root, local_repo='', path=''):
     """
     Dataset specification, see: get_data_path,
-    https://tensorport.com/documentation/api/#get_data_path
+    https://clusterone.com/documentation/api/#get_data_path
 
     If local_root starts with gs:// we suppose a bucket in google cloud and return
     local_root / local_repo / local_path
@@ -119,7 +119,7 @@ def get_data_path(dataset_name, local_root, local_repo='', path=''):
     """
     if local_root.startswith('gs://'):
         return os.path.join(local_root, local_repo, path)
-    return tensorport.get_data_path(
+    return clusterone.get_data_path(
         dataset_name=dataset_name,
         local_root=local_root,
         local_repo=local_repo,

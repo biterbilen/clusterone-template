@@ -67,7 +67,7 @@ def model_fn_example(dataset_tensor, evaluation, batch_size):
 
 
 if __name__ == '__main__':
-    logdir = '/tmp/tensorport_template_test_logdir'
+    logdir = '/tmp/clusterone_template_test_logdir'
     trainer = DistributedTrainer(log_dir=logdir,
                                  dataset=MyDummyDataSet(),
                                  model_fn=model_fn_example,

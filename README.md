@@ -1,17 +1,17 @@
-# TensorPort Template
+f# ClusterOne Template
 
-This is a template to train models of [TensorFlow](https://www.tensorflow.org/) in [TensorPort](https://tensorport.com/).
+This is a template to train models of [TensorFlow](https://www.tensorflow.org/) in [ClusterOne](https://clusterone.com/).
 
 
 ## Adding this repository as submodule
 
 ```sh
-git submodule add -b master https://github.com/tensorport/tensorport-template tensorport_template/
+git submodule add -b master https://github.com/theclusterone/clusterone-template clusterone_template/
 ```
 
-**NOTE**: Currently TensorPort doesn't support submodules from GitHub
+**NOTE**: Currently ClusterOne doesn't support submodules from GitHub
 
-## Basic setup of TensorPort
+## Basic setup of ClusterOne
 
 Set the environment variables:
 
@@ -20,23 +20,23 @@ export PROJECT_DIR="~/myprojects/project/"
 export DATA_DIR="~/mydata/data/"
 ```
 
-Create the projects in TensorPort (see the [get started guide](https://tensorport.com/get-started/)), the `PROJECT_DIR` and `DATA_DIR` need to be git repositories (skip the git commands if they already are git repositories):
+Create the projects in ClusterOne (see the [Getting Started guide](https://docs.clusterone.com/docs/get-started)), the `PROJECT_DIR` and `DATA_DIR` need to be git repositories (skip the git commands if they already are git repositories):
 
 ```sh
 pip install --upgrade git-lfs 
-pip install --upgrade tensorport
-tport login
+pip install --upgrade clusterone
+just login
 cd $PROJECT_DIR
 git init
 git add *
 git commit -m "update project"
-tport create project
+just create project
 cd $DATA_DIR
 git init
 git add *
 git-lfs track *
 git commit -m "update data"
-tport create dataset
+just create dataset
 cd $PROJECT_DIR
 ```
 
@@ -89,7 +89,7 @@ if __name__ == '__main__':
 
 ### Distributed training with continuous evaluation
 
-The recommended way to perform an evaluation at the same time the training is running is by using a new process that loads the checkpoints and runs the model with the evaluation dataset. This functionallity is under [distributed_training.py](https://github.com/tensorport/tensorport-template/blob/master/distributed_training.py). You can use calling to the function `launch_train_evaluation`. The last worker server will be use only for the evaluation. 
+The recommended way to perform an evaluation at the same time the training is running is by using a new process that loads the checkpoints and runs the model with the evaluation dataset. This functionality is under [distributed_training.py](distributed_training.py). You can use calling to the function `launch_train_evaluation`. The last worker server will be use only for the evaluation. 
 
 For example:
 
@@ -163,7 +163,7 @@ def model_fn_example(dataset_tensor, evaluation, batch_size):
 
 
 if __name__ == '__main__':
-    logdir = '/tmp/tensorport_template_test_logdir'
+    logdir = '/tmp/clusterone_template_test_logdir'
     trainer = DistributedTrainer(log_dir=logdir,
                                  dataset=MyDummyDataSet(),
                                  model_fn=model_fn_example,
@@ -182,5 +182,4 @@ if __name__ == '__main__':
 
 ## Running a job
 
-You can use the scrip `train.sh` to update the data in TensorPort and create a new job.
-
+You can use the scrip `train.sh` to update the data in ClusterOne and create a new job.
