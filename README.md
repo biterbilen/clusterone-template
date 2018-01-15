@@ -1,4 +1,4 @@
-f# ClusterOne Template
+# ClusterOne Template
 
 This is a template to train models of [TensorFlow](https://www.tensorflow.org/) in [ClusterOne](https://clusterone.com/).
 
