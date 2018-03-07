@@ -1,6 +1,6 @@
-# ClusterOne Template
+# Clusterone Template
 
-This is a template to train models of [TensorFlow](https://www.tensorflow.org/) in [ClusterOne](https://clusterone.com/).
+This is a template to train models of [TensorFlow](https://www.tensorflow.org/) in [Clusterone](https://clusterone.com/).
 
 
 ## Adding this repository as submodule
@@ -9,9 +9,9 @@ This is a template to train models of [TensorFlow](https://www.tensorflow.org/) 
 git submodule add -b master https://github.com/theclusterone/clusterone-template clusterone_template/
 ```
 
-**NOTE**: Currently ClusterOne doesn't support submodules from GitHub
+**NOTE**: Currently Clusterone doesn't support submodules from GitHub
 
-## Basic setup of ClusterOne
+## Basic setup of Clusterone
 
 Set the environment variables:
 
@@ -20,7 +20,7 @@ export PROJECT_DIR="~/myprojects/project/"
 export DATA_DIR="~/mydata/data/"
 ```
 
-Create the projects in ClusterOne (see the [Getting Started guide](https://docs.clusterone.com/docs/get-started)), the `PROJECT_DIR` and `DATA_DIR` need to be git repositories (skip the git commands if they already are git repositories):
+Create the projects in Clusterone (see the [Getting Started guide](https://docs.clusterone.com/docs/get-started)), the `PROJECT_DIR` and `DATA_DIR` need to be git repositories (skip the git commands if they already are git repositories):
 
 ```sh
 pip install --upgrade git-lfs 
@@ -182,4 +182,4 @@ if __name__ == '__main__':
 
 ## Running a job
 
-You can use the scrip `train.sh` to update the data in ClusterOne and create a new job.
+You can use the scrip `train.sh` to update the data in Clusterone and create a new job.
